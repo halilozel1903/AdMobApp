@@ -45,3 +45,10 @@ Bu bilgiler ışığında yeni planlamalar yaparak, daha fazla kullanıcıya eri
 
 
 AdMob bugün, 650.000'in üzerinde uygulamada kullanılıyor. Google, AdMob hizmetini kullanan geliştiricilerine 1 milyar USD'nin üzerinde bir ödeme yapmış. 2013 yılından beri ise CPM değerlerinde yüzde 200 oranında bir artış söz konusu. Aylık olarak 200 milyarın üzerinde bir reklam gösterimi olan AdMob, her geçen gün daha faza kullanıcıya ulaşarak, ekosistemin de gelişmesine katkıda bulunuyor. 1 milyonun üzerinde reklam verenin de tercih ettiği AdMob'u sadece Android için değil, iOS platformlarında da kullanabilirsiniz.
+
+<br> <br>
+
+## Yararlandığım Kaynaklar
+
+1 - https://www.udemy.com/sifirdan-ileri-seviyeye-kotlin-ve-android-kursu/learn/v4/ <br>
+2 - https://gelecegiyazanlar.turkcell.com.tr/konu/android/egitim/android-401/admob-nedir <br>
