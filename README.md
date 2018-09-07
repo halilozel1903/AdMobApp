@@ -1,5 +1,7 @@
 # AdMob App
 
+![Android](android.webp)
+
 AdMob kullanımının ve orneklerinin bulundugu bir Android projesidir. <br>
 Projemizde 2 tip reklam türü ile ilgili örnek bulunmaktadır. <br>
 Bu reklam türleri : Banner ve Geçiş <br>
