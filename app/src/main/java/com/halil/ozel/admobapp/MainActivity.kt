@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         /* Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
-        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713") // uygulama id'si
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713")
         var adRequest = AdRequest.Builder().build()
         bannerID.loadAd(adRequest) */
 
@@ -30,11 +30,11 @@ class MainActivity : AppCompatActivity() {
 
         // geçiş reklamı
         mInterstitialAd = InterstitialAd(this)
-        mInterstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712"
+        mInterstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712" // deneme id kullanıldı.
 
         var gecisliReklam = AdRequest.Builder().build()
         mInterstitialAd.loadAd(gecisliReklam)
-        mInterstitialAd.adListener = object : AdListener(){
+        mInterstitialAd.adListener = object : AdListener(){ // listener tanımlandı.
 
             override fun onAdClosed() { // reklam kapatıldığında
 
