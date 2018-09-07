@@ -2,7 +2,11 @@
 
 AdMob kullanımının ve orneklerinin bulundugu bir Android projesidir.
 
+<br>
+
 ## AdMob Nedir ?
+
+![Admob](admob.png)
 
 AdMob, mobil uygulama geliştiricilerinin gelir elde etmesini sağlayan bir reklam hizmetidir. <br>
 Google'ın web siteleri için sunduğu reklam servisleri olan AdSense ve AdWords ile karıştırılmaması gerekir. <br>
@@ -16,6 +20,8 @@ Kullanıcıların ilgi duydukları kategorilere göre reklam göstermesi sayesin
 <br>
 
 ## Nasıl başvurabilirim?
+
+![Admob1](admob1.png)
 
 Mevcut AdSense hesabı olan geliştiriciler, bu hesabı mobil uygulamalar için AdMob ile senkronize edip, hemen kullanmaya başlayabilir.
 Eğer bir reklam hesabınız yoksa, buraya tıklayarak hemen başvurunuzu yapabilirsiniz. AdMob sadece gelir sunmakla kalmayıp,
