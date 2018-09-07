@@ -1,12 +1,14 @@
 # AdMob App
 
-AdMob kullanımının ve orneklerinin bulundugu bir Android projesidir.
+AdMob kullanımının ve orneklerinin bulundugu bir Android projesidir. <br>
+Projemizde 2 tip reklam türü ile ilgili örnek bulunmaktadır. <br>
+Bu reklam türleri : Banner ve Geçiş <br>
 
 <br>
 
 ## AdMob Nedir ?
 
-![Admob](admob.png)
+![Admob](admob2.png)
 
 AdMob, mobil uygulama geliştiricilerinin gelir elde etmesini sağlayan bir reklam hizmetidir. <br>
 Google'ın web siteleri için sunduğu reklam servisleri olan AdSense ve AdWords ile karıştırılmaması gerekir. <br>
@@ -30,3 +32,13 @@ hangi yaş aralığından, ne tür cihaz kullanan kişilerden alıyorsunuz, yapt
 vb. pek çok önemli bilgiyi ayrıntılı bir şekilde görebiliyorsunuz.Dilerseniz Google Analytics hizmetini de AdMob içinde kullanabilirsiniz.
 Bu sayede de aynı şekilde uygulamanızı kullanan kitle hakkında ayrıntılı bilgi elde edebilirsiniz.
 Bu bilgiler ışığında yeni planlamalar yaparak, daha fazla kullanıcıya erişmeniz mümkün.
+
+
+<br>
+
+## Kimler kullanıyor? 
+
+![Admob3](admob3.png)
+
+
+AdMob bugün, 650.000'in üzerinde uygulamada kullanılıyor. Google, AdMob hizmetini kullanan geliştiricilerine 1 milyar USD'nin üzerinde bir ödeme yapmış. 2013 yılından beri ise CPM değerlerinde yüzde 200 oranında bir artış söz konusu. Aylık olarak 200 milyarın üzerinde bir reklam gösterimi olan AdMob, her geçen gün daha faza kullanıcıya ulaşarak, ekosistemin de gelişmesine katkıda bulunuyor. 1 milyonun üzerinde reklam verenin de tercih ettiği AdMob'u sadece Android için değil, iOS platformlarında da kullanabilirsiniz.
