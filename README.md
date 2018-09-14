@@ -4,7 +4,7 @@
 
 AdMob kullanımının ve orneklerinin bulundugu bir Android projesidir. <br>
 Projemizde 2 tip reklam türü ile ilgili örnek bulunmaktadır. <br>
-Bu reklam türleri : Banner ve Geçiş <br>
+Bu reklam türleri : Banner ve Geçiş (Interstitial) <br>
 Android Emulatör kullanılarak uygulama geliştirilmektedir. <br>
 
 <br>
@@ -52,3 +52,4 @@ AdMob bugün, 650.000'in üzerinde uygulamada kullanılıyor. Google, AdMob hizm
 
 1 - https://www.udemy.com/sifirdan-ileri-seviyeye-kotlin-ve-android-kursu/learn/v4/ <br>
 2 - https://gelecegiyazanlar.turkcell.com.tr/konu/android/egitim/android-401/admob-nedir <br>
+3 - https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start?hl=tr <br>
