@@ -1,55 +1,81 @@
-# AdMob App
+# AdMob App 📱
 
-![Android](android.webp)
+![Android](admob.png)
 
-AdMob kullanımının ve orneklerinin bulundugu bir Android projesidir. <br>
-Projemizde 2 tip reklam türü ile ilgili örnek bulunmaktadır. <br>
-Bu reklam türleri : Banner ve Geçiş (Interstitial) <br>
-Android Emulatör kullanılarak uygulama geliştirilmektedir. <br>
+It is an Android project with AdMob usage and examples. <br>
+There are examples of 2 types of advertisement in our project. <br>
+These ad types are: Banner and Interstitial <br>
+Application is developed using Android Emulator. <br>
 
 <br>
 
-## AdMob Nedir ?
+## What is AdMob❓
 
 ![Admob](admob2.png)
 
-AdMob, mobil uygulama geliştiricilerinin gelir elde etmesini sağlayan bir reklam hizmetidir. <br>
-Google'ın web siteleri için sunduğu reklam servisleri olan AdSense ve AdWords ile karıştırılmaması gerekir. <br>
-Daha basit bir şekilde ifade etmek gerekirse; AdMob, mobil uygulamanıza reklam ekleyerek para kazanmanızı sağlar. <br>
-İlk olarak 2006 yılında Omar Hamoui tarafından kurulmuş olan ve Kasım 2009'da Google tarafından 750 milyon USD'lik bir fiyatla satın alınan
-AdMob,reklam veren ve geliştiricileri buluşturan,Android dünyasının en çok tercih edilen gelir elde etme modellerinden birisi.
-AdMob, uygulamaların indirilme rakamlarına göre ücretlendirme yapmak yerine,reklamlara tıklanma oranlarına bağlı olarak gelir sunuyor. 
-Kullanıcıların ilgi duydukları kategorilere göre reklam göstermesi sayesinde, uygulamanızın popülerliğine göre yüksek kazanç elde edebiliyorsunuz. <br>
+AdMob is an advertising service that enables mobile app developers to generate revenue.
+It should not be confused with AdSense and AdWords, which are the advertising services Google offers for websites.
+To put it more simply; AdMob allows you to earn money by adding ads to your mobile app.
+Originally founded by Omar Hamoui in 2006 and purchased by Google in November 2009 for $ 750 million
+AdMob is one of the most preferred revenue generating models in the Android world, bringing advertisers and developers together.
+AdMob offers revenue based on the rate of clicks on ads, rather than charging based on the number of downloads of apps.
+You can earn high earnings based on the popularity of your application, thanks to which users show ads according to the categories they are interested in. <br>
 
 
 <br>
 
-## Nasıl başvurabilirim?
+## How can I apply❓
 
 ![Admob1](admob1.png)
 
-Mevcut AdSense hesabı olan geliştiriciler, bu hesabı mobil uygulamalar için AdMob ile senkronize edip, hemen kullanmaya başlayabilir.
-Eğer bir reklam hesabınız yoksa, buraya tıklayarak hemen başvurunuzu yapabilirsiniz. AdMob sadece gelir sunmakla kalmayıp,
-kullanıcı kitlenizi de öğrenmenize yardımcı oluyor. AdMob'un gelişmiş raporlama sistemi sayesinde, tıklamaları hangi ülkeden,
-hangi yaş aralığından, ne tür cihaz kullanan kişilerden alıyorsunuz, yaptığınız bir güncellemeden sonra kaç kişi uygulamanızı takip etmeye başladı
-vb. pek çok önemli bilgiyi ayrıntılı bir şekilde görebiliyorsunuz.Dilerseniz Google Analytics hizmetini de AdMob içinde kullanabilirsiniz.
-Bu sayede de aynı şekilde uygulamanızı kullanan kitle hakkında ayrıntılı bilgi elde edebilirsiniz.
-Bu bilgiler ışığında yeni planlamalar yaparak, daha fazla kullanıcıya erişmeniz mümkün.
+Developers with existing AdSense accounts can sync this account with AdMob for mobile applications and start using it immediately. If you do not have an advertising account, you can click here to apply immediately. AdMob not only provides revenue,
+helps you learn your audience as well. Thanks to AdMob's advanced reporting system, from which country, clicks
+from which age range, what kind of device you buy, how many people started to follow your application after an update.
+etc. You can see many important information in detail. If you wish, you can also use the Google Analytics service in AdMob.
+In this way, you can also get detailed information about the audience using your application.
+In the light of this information, it is possible to reach more users by making new plans.
 
 
 <br>
 
-## Kimler kullanıyor? 
+## Who uses it❓
 
 ![Admob3](admob3.jpg)
 
+AdMob is used in over 650,000 apps today. Google has paid over $ 1 billion to its developers using the AdMob service. Since 2013, there has been an increase of 200 percent in CPM values. AdMob, which has over 200 billion ad impressions per month, reaches more and more users every day and contributes to the development of the ecosystem. You can use AdMob, which is preferred by over 1 million advertisers, not only for Android but also on iOS platforms.
 
-AdMob bugün, 650.000'in üzerinde uygulamada kullanılıyor. Google, AdMob hizmetini kullanan geliştiricilerine 1 milyar USD'nin üzerinde bir ödeme yapmış. 2013 yılından beri ise CPM değerlerinde yüzde 200 oranında bir artış söz konusu. Aylık olarak 200 milyarın üzerinde bir reklam gösterimi olan AdMob, her geçen gün daha faza kullanıcıya ulaşarak, ekosistemin de gelişmesine katkıda bulunuyor. 1 milyonun üzerinde reklam verenin de tercih ettiği AdMob'u sadece Android için değil, iOS platformlarında da kullanabilirsiniz.
+<br>
 
-<br> <br>
+## Screenshots 🖼
+<img src="banner.png" width="300"/> || <img src="interstitial.png" width="300"/>
 
-## Yararlandığım Kaynaklar
+## Resources 📚
+- https://developers.google.com/admob/android/quick-start
+- https://halilozel1903.medium.com/androidde-admob-kullanımı-757ecbd609ac
+- https://halilozel1903.medium.com/android-banner-reklam-518d8b910938
+- https://halilozel1903.medium.com/android-interstitial-reklam-8b1cbd827703
 
-1 - https://www.udemy.com/sifirdan-ileri-seviyeye-kotlin-ve-android-kursu/learn/v4/ <br>
-2 - https://gelecegiyazanlar.turkcell.com.tr/konu/android/egitim/android-401/admob-nedir <br>
-3 - https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start?hl=tr <br>
+## License ℹ️
+```
+MIT License
+
+Copyright (c) 2020 Halil Ozel
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```

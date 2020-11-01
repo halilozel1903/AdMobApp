@@ -1,7 +1,7 @@
 package com.halil.ozel.admobapp
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
@@ -17,33 +17,34 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /* Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
-        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713")
-        var adRequest = AdRequest.Builder().build()
-        bannerID.loadAd(adRequest) */
+        /*
+        App ID : The unique ID assigned to your app. You'll need to integrate
+        the app ID into your app's source code to use certain features in AdMob.
+         */
+
+        MobileAds.initialize(this) {}
+        val adRequest = AdRequest.Builder().build()
+        bannerID.loadAd(adRequest) //banner load
 
 
-        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713") // uygulama id'si
-        var adRequest = AdRequest.Builder().build()
-        bannerID.loadAd(adRequest)
-
-
-        // geçiş reklamı
+        //Interstitial Ad
         mInterstitialAd = InterstitialAd(this)
-        mInterstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712" // deneme id kullanıldı.
+        mInterstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712" //Interstitial Ad Id
 
-        var gecisliReklam = AdRequest.Builder().build()
-        mInterstitialAd.loadAd(gecisliReklam)
-        mInterstitialAd.adListener = object : AdListener(){ // listener tanımlandı.
 
-            override fun onAdClosed() { // reklam kapatıldığında
+        val request = AdRequest.Builder().build()
+        mInterstitialAd.loadAd(request)
 
-                // bir sonraki ekrana git.
-                var intent = Intent(this@MainActivity,Main2Activity::class.java)
+        mInterstitialAd.adListener = object : AdListener() { //listener add.
+
+            override fun onAdClosed() { //when the ad is closed
+
+                //go to the next screen.
+                val intent = Intent(this@MainActivity, SecondActivity::class.java)
                 startActivity(intent)
 
-                // bir daha bu ekrana gelinirse reklamı tekrardan göster.
-                mInterstitialAd.loadAd(gecisliReklam)
+                //If you come to this screen again, show the ad again.
+                mInterstitialAd.loadAd(request)
 
             }
         }
@@ -51,12 +52,12 @@ class MainActivity : AppCompatActivity() {
 
         newActivity.setOnClickListener {
 
-            if (mInterstitialAd.isLoaded){ // yüklendiyse
-                mInterstitialAd.show() // reklamı göster
-            }else{ // yüklenmediyse
+            if (mInterstitialAd.isLoaded) { //when the ad is loaded
+                mInterstitialAd.show() //show ad
+            } else { //didn't load ad
 
-                // intent ile bir sonraki ekrana git.
-                var intent = Intent(this@MainActivity,Main2Activity::class.java)
+                //go to the next screen.
+                val intent = Intent(this@MainActivity, SecondActivity::class.java)
                 startActivity(intent)
             }
 
