@@ -3,8 +3,8 @@
 ![Android](admob.png)
 
 It is an Android project with AdMob usage and examples. <br>
-There are examples of 2 types of advertisement in our project. <br>
-These ad types are: Banner and Interstitial <br>
+There are examples of 3 types of advertisement in our project. <br>
+These ad types are: Banner, Interstitial and Rewarded <br>
 Application is developed using Android Emulator. <br>
 
 <br>
@@ -47,13 +47,14 @@ AdMob is used in over 650,000 apps today. Google has paid over $ 1 billion to it
 <br>
 
 ## Screenshots 🖼
-<img src="banner.png" width="300"/> || <img src="interstitial.png" width="300"/>
+<img src="banner.png" width="250"/> || <img src="interstitial.png" width="250"/> || <img src="rewarded.png" width="250"/>
 
 ## Resources 📚
 - https://developers.google.com/admob/android/quick-start
 - https://halilozel1903.medium.com/androidde-admob-kullanımı-757ecbd609ac
 - https://halilozel1903.medium.com/android-banner-reklam-518d8b910938
 - https://halilozel1903.medium.com/android-interstitial-reklam-8b1cbd827703
+- https://halilozel1903.medium.com/android-rewarded-reklam-1d6788c9f6f5
 
 ## License ℹ️
 ```
