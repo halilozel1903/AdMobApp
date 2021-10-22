@@ -1,11 +1,8 @@
-# AdMob App 📱
+# AdMob 🤑 App 📱
 
 ![Android](admob.png)
 
-It is an Android project with AdMob usage and examples. <br>
-There are examples of 3 types of advertisement in our project. <br>
-These ad types are: Banner, Interstitial and Rewarded <br>
-Application is developed using Android Emulator. <br>
+It is an Android project with AdMob usage and examples. There are examples of 3 types of advertisement in our project. These ad types are: **Banner**, **Interstitial** and **Rewarded**. Application is developed using Android Emulator.
 
 <br>
 
