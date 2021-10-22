@@ -60,7 +60,7 @@ AdMob is used in over 650,000 apps today. Google has paid over $ 1 billion to it
 ```
 MIT License
 
-Copyright (c) 2020 Halil Ozel
+Copyright (c) 2021 Halil OZEL
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
