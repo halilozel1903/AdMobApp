@@ -1,28 +1,29 @@
 package com.halil.ozel.admobapp
 
-import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.annotation.NonNull
-import com.google.android.gms.ads.*
-import com.google.android.gms.ads.rewarded.RewardItem
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.google.android.gms.ads.rewarded.RewardedAd
-import com.google.android.gms.ads.rewarded.RewardedAdCallback
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
-import kotlinx.android.synthetic.main.activity_main.*
+import com.halil.ozel.admobapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var interstitialAd: InterstitialAd
-
-    private lateinit var rewardedAd: RewardedAd
-
+    private lateinit var binding: ActivityMainBinding
+    private var mInterstitialAd: InterstitialAd? = null
+    private var mRewardedAd: RewardedAd? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         /*
         App ID : The unique ID assigned to your app. You'll need to integrate
@@ -31,83 +32,54 @@ class MainActivity : AppCompatActivity() {
 
         MobileAds.initialize(this) {}
         val adRequest = AdRequest.Builder().build()
-        bannerID.loadAd(adRequest) //banner load
+        binding.bannerID.loadAd(adRequest) //banner load
 
+        binding.btnRewardedAd.setOnClickListener {
 
-        rewardedAd = RewardedAd(this, "ca-app-pub-3940256099942544/5224354917")
-        val adLoadCallback = object: RewardedAdLoadCallback() {
-            override fun onRewardedAdLoaded() {
-                // Ad successfully loaded.
-            }
-            override fun onRewardedAdFailedToLoad(adError: LoadAdError) {
-                // Ad failed to load.
-            }
-        }
-        rewardedAd.loadAd(AdRequest.Builder().build(), adLoadCallback)
-
-        //Interstitial Ad
-        interstitialAd = InterstitialAd(this)
-        interstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712" //Interstitial Ad Id
-
-
-        val request = AdRequest.Builder().build()
-        interstitialAd.loadAd(request)
-
-        interstitialAd.adListener = object : AdListener() { //listener add.
-
-            override fun onAdClosed() { //when the ad is closed
-
-                //go to the next screen.
-                val intent = Intent(this@MainActivity, SecondActivity::class.java)
-                startActivity(intent)
-
-                //If you come to this screen again, show the ad again.
-                interstitialAd.loadAd(request)
-
-            }
-        }
-
-
-        btnRewardedAd.setOnClickListener {
-
-            if (rewardedAd.isLoaded) {
-                val activityContext: Activity = this@MainActivity
-                val adCallback = object: RewardedAdCallback() {
-
-                    override fun onRewardedAdOpened() {
-                        // Ad opened.
-                    }
-                    override fun onRewardedAdClosed() {
-                        // Ad closed.
-                    }
-                    override fun onUserEarnedReward(@NonNull reward: RewardItem) {
-                        // User earned reward.
-
-                        println("Amount : "+reward.amount)
-                    }
-                    override fun onRewardedAdFailedToShow(adError: AdError) {
-                        // Ad failed to display.
+            RewardedAd.load(this,
+                "ca-app-pub-3940256099942544/5224354917",
+                adRequest,
+                object : RewardedAdLoadCallback() {
+                    override fun onAdFailedToLoad(adError: LoadAdError) {
+                        Log.d("TAG", adError.message)
+                        mRewardedAd = null
+                        val intent = Intent(this@MainActivity, SecondActivity::class.java)
+                        startActivity(intent)
                     }
 
-                }
-                rewardedAd.show(activityContext, adCallback)
+                    override fun onAdLoaded(rewardedAd: RewardedAd) {
+                        Log.d("TAG", "Ad was loaded.")
+                        mRewardedAd = rewardedAd
+                        mRewardedAd?.show(this@MainActivity) { rewardItem ->
+                            val rewardAmount = rewardItem.amount
+                            Toast.makeText(
+                                this@MainActivity, "User earned the reward: $rewardAmount", Toast.LENGTH_LONG
+                            ).show()
+                        }
+                    }
+                })
+
+
+            binding.btnInterstitialAd.setOnClickListener {
+
+                InterstitialAd.load(this,
+                    "ca-app-pub-3940256099942544/1033173712",
+                    adRequest,
+                    object : InterstitialAdLoadCallback() {
+                        override fun onAdFailedToLoad(adError: LoadAdError) {
+                            Log.d("TAG", adError.message)
+                            mInterstitialAd = null
+                            val intent = Intent(this@MainActivity, SecondActivity::class.java)
+                            startActivity(intent)
+                        }
+
+                        override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                            Log.d("TAG", "Ad was loaded.")
+                            mInterstitialAd = interstitialAd
+                            mInterstitialAd?.show(this@MainActivity)
+                        }
+                    })
             }
-            else {
-                Log.d("TAG", "The rewarded ad wasn't loaded yet.")
-            }
-        }
-
-        btnInterstitialAd.setOnClickListener {
-
-            if (interstitialAd.isLoaded) { //when the ad is loaded
-                interstitialAd.show() //show ad
-            } else { //didn't load ad
-
-                //go to the next screen.
-                val intent = Intent(this@MainActivity, SecondActivity::class.java)
-                startActivity(intent)
-            }
-
         }
     }
 }
