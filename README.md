@@ -46,18 +46,11 @@ AdMob is used in over 650,000 apps today. Google has paid over $ 1 billion to it
 ## Screenshots 🖼
 <img src="banner.png" width="250"/> || <img src="interstitial.png" width="250"/> || <img src="rewarded.png" width="250"/>
 
-## Resources 📚
-- https://developers.google.com/admob/android/quick-start
-- https://halilozel1903.medium.com/androidde-admob-kullanımı-757ecbd609ac
-- https://halilozel1903.medium.com/android-banner-reklam-518d8b910938
-- https://halilozel1903.medium.com/android-interstitial-reklam-8b1cbd827703
-- https://halilozel1903.medium.com/android-rewarded-reklam-1d6788c9f6f5
-
 ## License ℹ️
 ```
 MIT License
 
-Copyright (c) 2021 Halil OZEL
+Copyright (c) 2022 Halil OZEL
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
