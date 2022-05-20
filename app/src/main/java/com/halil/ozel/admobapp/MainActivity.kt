@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         binding.bannerID.loadAd(adRequest) //banner load
 
         binding.btnRewardedAd.setOnClickListener {
-
             RewardedAd.load(this,
                 "ca-app-pub-3940256099942544/5224354917",
                 adRequest,
@@ -53,7 +52,9 @@ class MainActivity : AppCompatActivity() {
                         mRewardedAd?.show(this@MainActivity) { rewardItem ->
                             val rewardAmount = rewardItem.amount
                             Toast.makeText(
-                                this@MainActivity, "User earned the reward: $rewardAmount", Toast.LENGTH_LONG
+                                this@MainActivity,
+                                "User earned the reward: $rewardAmount",
+                                Toast.LENGTH_LONG
                             ).show()
                         }
                     }
@@ -61,7 +62,6 @@ class MainActivity : AppCompatActivity() {
 
 
             binding.btnInterstitialAd.setOnClickListener {
-
                 InterstitialAd.load(this,
                     "ca-app-pub-3940256099942544/1033173712",
                     adRequest,
