@@ -34,10 +34,10 @@ AdMob is used in over 650,000 apps today. Google has paid over $ 1 billion to it
 
 ## Blog Posts 📚 
 
-- [Android Admob Ad](https://halilozel1903.medium.com/androidde-admob-kullanımı-757ecbd609ac)
-- [Android Banner Ad](https://halilozel1903.medium.com/android-banner-reklam-518d8b910938)
-- [Android Interstitial Ad](https://halilozel1903.medium.com/android-interstitial-reklam-8b1cbd827703)
-- [Android Rewarded Ad](https://halilozel1903.medium.com/android-rewarded-reklam-1d6788c9f6f5)
+- [Android Admob Ad](https://halilozel1903.medium.com/androidde-admob-kullanımı-757ecbd609ac) 🏦
+- [Android Banner Ad](https://halilozel1903.medium.com/android-banner-reklam-518d8b910938) 💵
+- [Android Interstitial Ad](https://halilozel1903.medium.com/android-interstitial-reklam-8b1cbd827703) 💶
+- [Android Rewarded Ad](https://halilozel1903.medium.com/android-rewarded-reklam-1d6788c9f6f5) 💷
 
 ## Screenshots 🖼
 <img src="banner.png" width="250"/> || <img src="interstitial.png" width="250"/> || <img src="rewarded.png" width="250"/>
