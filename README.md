@@ -42,6 +42,12 @@ AdMob is used in over 650,000 apps today. Google has paid over $ 1 billion to it
 ## Screenshots 🖼
 <img src="banner.png" width="250"/> || <img src="interstitial.png" width="250"/> || <img src="rewarded.png" width="250"/>
 
+## Donation 💸
+
+If this project help 💁 you, Can you give me a cup of coffee? ☕
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/halilozel1903)
+
 ## License ℹ️
 ```
 MIT License
