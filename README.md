@@ -2,9 +2,8 @@
 
 ![Android](admob.png)
 
-It is an Android project with AdMob usage and examples. There are examples of 3 types of advertisement in our project. These ad types are: **Banner**, **Interstitial** and **Rewarded**. Application is developed using Android Emulator.
+It is an Android project with AdMob usage and examples. There are examples of 3 types of advertisement in our project. These ad types are: `Banner`, `Interstitial` and `Rewarded`. Application is developed using Android Emulator.
 
-<br>
 
 ## What is AdMob❓
 
@@ -17,7 +16,6 @@ Originally founded by Omar Hamoui in 2006 and purchased by Google in November 20
 AdMob is one of the most preferred revenue generating models in the Android world, bringing advertisers and developers together.
 AdMob offers revenue based on the rate of clicks on ads, rather than charging based on the number of downloads of apps.
 You can earn high earnings based on the popularity of your application, thanks to which users show ads according to the categories they are interested in. 
-
 
 ## How can I apply ⁉️
 
