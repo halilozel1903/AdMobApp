@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AdMobApp</string>
+    <string name="ad_info">Ad was loaded.</string>
+    <string name="rewarded_info">"User earned the reward.</string>
 </resources>

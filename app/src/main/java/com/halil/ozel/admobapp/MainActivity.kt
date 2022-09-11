@@ -36,24 +36,24 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnRewardedAd.setOnClickListener {
             RewardedAd.load(this,
-                "ca-app-pub-3940256099942544/5224354917",
+                REWARDED_AD,
                 adRequest,
                 object : RewardedAdLoadCallback() {
                     override fun onAdFailedToLoad(adError: LoadAdError) {
-                        Log.d("TAG", adError.message)
+                        Log.d(TAG, adError.message)
                         mRewardedAd = null
                         val intent = Intent(this@MainActivity, SecondActivity::class.java)
                         startActivity(intent)
                     }
 
                     override fun onAdLoaded(rewardedAd: RewardedAd) {
-                        Log.d("TAG", "Ad was loaded.")
+                        Log.d(TAG, getString(R.string.ad_info))
                         mRewardedAd = rewardedAd
                         mRewardedAd?.show(this@MainActivity) { rewardItem ->
                             val rewardAmount = rewardItem.amount
                             Toast.makeText(
                                 this@MainActivity,
-                                "User earned the reward: $rewardAmount",
+                                getString(R.string.rewarded_info) + " " + rewardAmount,
                                 Toast.LENGTH_LONG
                             ).show()
                         }
@@ -63,23 +63,29 @@ class MainActivity : AppCompatActivity() {
 
             binding.btnInterstitialAd.setOnClickListener {
                 InterstitialAd.load(this,
-                    "ca-app-pub-3940256099942544/1033173712",
+                    INTERSTITIAL_AD,
                     adRequest,
                     object : InterstitialAdLoadCallback() {
                         override fun onAdFailedToLoad(adError: LoadAdError) {
-                            Log.d("TAG", adError.message)
+                            Log.d(TAG, adError.message)
                             mInterstitialAd = null
                             val intent = Intent(this@MainActivity, SecondActivity::class.java)
                             startActivity(intent)
                         }
 
                         override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                            Log.d("TAG", "Ad was loaded.")
+                            Log.d(TAG, getString(R.string.ad_info))
                             mInterstitialAd = interstitialAd
                             mInterstitialAd?.show(this@MainActivity)
                         }
                     })
             }
         }
+    }
+
+    companion object {
+        const val TAG = "ANDROID ADMOB SAMPLE"
+        const val INTERSTITIAL_AD = "ca-app-pub-3940256099942544/1033173712"
+        const val REWARDED_AD = "ca-app-pub-3940256099942544/5224354917"
     }
 }
