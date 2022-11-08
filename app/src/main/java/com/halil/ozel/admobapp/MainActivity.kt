@@ -21,9 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setBinding()
 
         /*
         App ID : The unique ID assigned to your app. You'll need to integrate
@@ -32,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         MobileAds.initialize(this) {}
         val adRequest = AdRequest.Builder().build()
-        binding.bannerID.loadAd(adRequest) //banner load
+        binding.bannerID.loadAd(adRequest) // Banner load
 
         binding.btnRewardedAd.setOnClickListener {
             RewardedAd.load(this,
@@ -69,8 +67,9 @@ class MainActivity : AppCompatActivity() {
                         override fun onAdFailedToLoad(adError: LoadAdError) {
                             Log.d(TAG, adError.message)
                             mInterstitialAd = null
-                            val intent = Intent(this@MainActivity, SecondActivity::class.java)
-                            startActivity(intent)
+                            Intent(this@MainActivity, SecondActivity::class.java).apply {
+                                startActivity(this)
+                            }
                         }
 
                         override fun onAdLoaded(interstitialAd: InterstitialAd) {
@@ -83,9 +82,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun setBinding() {
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+    }
+
     companion object {
-        const val TAG = "ANDROID ADMOB SAMPLE"
-        const val INTERSTITIAL_AD = "ca-app-pub-3940256099942544/1033173712"
-        const val REWARDED_AD = "ca-app-pub-3940256099942544/5224354917"
+        private const val TAG = "ANDROID ADMOB SAMPLE"
+        private const val INTERSTITIAL_AD = "ca-app-pub-3940256099942544/1033173712"
+        private const val REWARDED_AD = "ca-app-pub-3940256099942544/5224354917"
     }
 }
