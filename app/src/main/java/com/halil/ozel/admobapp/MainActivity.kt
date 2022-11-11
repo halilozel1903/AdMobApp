@@ -2,7 +2,6 @@ package com.halil.ozel.admobapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdRequest
@@ -38,22 +37,18 @@ class MainActivity : AppCompatActivity() {
                 adRequest,
                 object : RewardedAdLoadCallback() {
                     override fun onAdFailedToLoad(adError: LoadAdError) {
-                        Log.d(TAG, adError.message)
+                        showMessage(adError.message)
                         mRewardedAd = null
                         val intent = Intent(this@MainActivity, SecondActivity::class.java)
                         startActivity(intent)
                     }
 
                     override fun onAdLoaded(rewardedAd: RewardedAd) {
-                        Log.d(TAG, getString(R.string.ad_info))
+                        showMessage(getString(R.string.ad_info))
                         mRewardedAd = rewardedAd
                         mRewardedAd?.show(this@MainActivity) { rewardItem ->
                             val rewardAmount = rewardItem.amount
-                            Toast.makeText(
-                                this@MainActivity,
-                                getString(R.string.rewarded_info) + " " + rewardAmount,
-                                Toast.LENGTH_LONG
-                            ).show()
+                            showMessage(getString(R.string.rewarded_info) + " " + rewardAmount)
                         }
                     }
                 })
@@ -65,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                     adRequest,
                     object : InterstitialAdLoadCallback() {
                         override fun onAdFailedToLoad(adError: LoadAdError) {
-                            Log.d(TAG, adError.message)
+                            showMessage(adError.message)
                             mInterstitialAd = null
                             Intent(this@MainActivity, SecondActivity::class.java).apply {
                                 startActivity(this)
@@ -73,7 +68,7 @@ class MainActivity : AppCompatActivity() {
                         }
 
                         override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                            Log.d(TAG, getString(R.string.ad_info))
+                            showMessage(getString(R.string.ad_info))
                             mInterstitialAd = interstitialAd
                             mInterstitialAd?.show(this@MainActivity)
                         }
@@ -86,6 +81,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+    }
+
+    private fun showMessage(message: String) {
+        Toast.makeText(this@MainActivity, message, Toast.LENGTH_LONG).show()
     }
 
     companion object {
