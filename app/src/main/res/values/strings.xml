@@ -2,4 +2,6 @@
     <string name="app_name">AdMobApp</string>
     <string name="ad_info">Ad was loaded.</string>
     <string name="rewarded_info">"User earned the reward.</string>
+    <string name="show_rewarded_ads">Show Rewarded Ads</string>
+    <string name="show_interstitial_ads">Show Interstitial Ads</string>
 </resources>
