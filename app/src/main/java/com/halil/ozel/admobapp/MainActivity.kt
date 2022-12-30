@@ -39,8 +39,9 @@ class MainActivity : AppCompatActivity() {
                     override fun onAdFailedToLoad(adError: LoadAdError) {
                         showMessage(adError.message)
                         mRewardedAd = null
-                        val intent = Intent(this@MainActivity, SecondActivity::class.java)
-                        startActivity(intent)
+                        Intent(this@MainActivity, SecondActivity::class.java).apply {
+                            startActivity(this)
+                        }
                     }
 
                     override fun onAdLoaded(rewardedAd: RewardedAd) {
