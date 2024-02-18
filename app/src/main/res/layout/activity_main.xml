@@ -8,7 +8,7 @@
 
 
     <com.google.android.gms.ads.AdView
-        android:id="@+id/bannerID"
+        android:id="@+id/avBannerId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -39,7 +39,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/show_rewarded_ads"
-        app:layout_constraintBottom_toTopOf="@id/bannerID"
+        app:layout_constraintBottom_toTopOf="@id/avBannerId"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
