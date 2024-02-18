@@ -89,7 +89,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val TAG = "ANDROID ADMOB SAMPLE"
         private const val INTERSTITIAL_AD = "ca-app-pub-3940256099942544/1033173712"
         private const val REWARDED_AD = "ca-app-pub-3940256099942544/5224354917"
     }
