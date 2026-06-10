@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.interstitial.InterstitialAd
@@ -15,81 +17,148 @@ import com.halil.ozel.admobapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private var mInterstitialAd: InterstitialAd? = null
-    private var mRewardedAd: RewardedAd? = null
+    private var interstitialAd: InterstitialAd? = null
+    private var rewardedAd: RewardedAd? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setBinding()
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        /*
-        App ID : The unique ID assigned to your app. You'll need to integrate
-        the app ID into your app's source code to use certain features in AdMob.
-         */
+        MobileAds.initialize(this) {
+            loadBannerAd()
+            loadInterstitialAd()
+            loadRewardedAd()
+        }
 
-        MobileAds.initialize(this) {}
-        val adRequest = AdRequest.Builder().build()
-        binding.bannerID.loadAd(adRequest) // Banner load
+        binding.btnInterstitialAd.setOnClickListener { showInterstitialAd() }
+        binding.btnRewardedAd.setOnClickListener { showRewardedAd() }
+    }
 
-        binding.btnRewardedAd.setOnClickListener {
-            RewardedAd.load(this,
-                REWARDED_AD,
-                adRequest,
-                object : RewardedAdLoadCallback() {
-                    override fun onAdFailedToLoad(adError: LoadAdError) {
-                        showMessage(adError.message)
-                        mRewardedAd = null
-                        Intent(this@MainActivity, SecondActivity::class.java).apply {
-                            startActivity(this)
-                        }
-                    }
+    override fun onResume() {
+        super.onResume()
+        binding.bannerAdView.resume()
+    }
 
-                    override fun onAdLoaded(rewardedAd: RewardedAd) {
-                        showMessage(getString(R.string.ad_info))
-                        mRewardedAd = rewardedAd
-                        mRewardedAd?.show(this@MainActivity) { rewardItem ->
-                            val rewardAmount = rewardItem.amount
-                            showMessage(getString(R.string.rewarded_info) + " " + rewardAmount)
-                        }
-                    }
-                })
+    override fun onPause() {
+        binding.bannerAdView.pause()
+        super.onPause()
+    }
 
+    override fun onDestroy() {
+        binding.bannerAdView.destroy()
+        super.onDestroy()
+    }
 
-            binding.btnInterstitialAd.setOnClickListener {
-                InterstitialAd.load(this,
-                    INTERSTITIAL_AD,
-                    adRequest,
-                    object : InterstitialAdLoadCallback() {
-                        override fun onAdFailedToLoad(adError: LoadAdError) {
-                            showMessage(adError.message)
-                            mInterstitialAd = null
-                            Intent(this@MainActivity, SecondActivity::class.java).apply {
-                                startActivity(this)
-                            }
-                        }
+    private fun loadBannerAd() {
+        binding.bannerAdView.loadAd(createAdRequest())
+    }
 
-                        override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                            showMessage(getString(R.string.ad_info))
-                            mInterstitialAd = interstitialAd
-                            mInterstitialAd?.show(this@MainActivity)
-                        }
-                    })
+    private fun loadInterstitialAd() {
+        InterstitialAd.load(
+            this,
+            INTERSTITIAL_AD_UNIT_ID,
+            createAdRequest(),
+            object : InterstitialAdLoadCallback() {
+                override fun onAdFailedToLoad(adError: LoadAdError) {
+                    interstitialAd = null
+                    showMessage(adError.message)
+                }
+
+                override fun onAdLoaded(ad: InterstitialAd) {
+                    interstitialAd = ad
+                    showMessage(getString(R.string.ad_info))
+                }
             }
+        )
+    }
+
+    private fun loadRewardedAd() {
+        RewardedAd.load(
+            this,
+            REWARDED_AD_UNIT_ID,
+            createAdRequest(),
+            object : RewardedAdLoadCallback() {
+                override fun onAdFailedToLoad(adError: LoadAdError) {
+                    rewardedAd = null
+                    showMessage(adError.message)
+                }
+
+                override fun onAdLoaded(ad: RewardedAd) {
+                    rewardedAd = ad
+                    showMessage(getString(R.string.ad_info))
+                }
+            }
+        )
+    }
+
+    private fun showInterstitialAd() {
+        val ad = interstitialAd
+        if (ad == null) {
+            showMessage(getString(R.string.ad_loading))
+            loadInterstitialAd()
+            openSecondActivity()
+            return
+        }
+
+        ad.fullScreenContentCallback = object : FullScreenContentCallback() {
+            override fun onAdDismissedFullScreenContent() {
+                interstitialAd = null
+                showMessage(getString(R.string.ad_closed))
+                loadInterstitialAd()
+                openSecondActivity()
+            }
+
+            override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+                interstitialAd = null
+                showMessage(adError.message)
+                loadInterstitialAd()
+                openSecondActivity()
+            }
+        }
+        ad.show(this)
+    }
+
+    private fun showRewardedAd() {
+        val ad = rewardedAd
+        if (ad == null) {
+            showMessage(getString(R.string.ad_loading))
+            loadRewardedAd()
+            openSecondActivity()
+            return
+        }
+
+        ad.fullScreenContentCallback = object : FullScreenContentCallback() {
+            override fun onAdDismissedFullScreenContent() {
+                rewardedAd = null
+                loadRewardedAd()
+                openSecondActivity()
+            }
+
+            override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+                rewardedAd = null
+                showMessage(adError.message)
+                loadRewardedAd()
+                openSecondActivity()
+            }
+        }
+        ad.show(this) { rewardItem ->
+            showMessage("${getString(R.string.rewarded_info)} ${rewardItem.amount} ${rewardItem.type}")
         }
     }
 
-    private fun setBinding() {
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+    private fun createAdRequest(): AdRequest = AdRequest.Builder().build()
+
+    private fun openSecondActivity() {
+        startActivity(Intent(this, SecondActivity::class.java))
     }
 
     private fun showMessage(message: String) {
-        Toast.makeText(this@MainActivity, message, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
     companion object {
-        private const val INTERSTITIAL_AD = "ca-app-pub-3940256099942544/1033173712"
-        private const val REWARDED_AD = "ca-app-pub-3940256099942544/5224354917"
+        private const val INTERSTITIAL_AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"
+        private const val REWARDED_AD_UNIT_ID = "ca-app-pub-3940256099942544/5224354917"
     }
 }
